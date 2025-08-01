@@ -9,18 +9,22 @@
   "section_break_u83i",
   "amended_from",
   "passenger",
-  "source_airport",
   "source_airport_code",
   "column_break_gicv",
   "flight",
-  "destination_airport",
   "destination_airport_code",
   "status",
+  "seat",
   "departure_details_section",
   "departure_date",
   "departure_time",
   "column_break_xxft",
-  "duration"
+  "duration",
+  "add_ons_section",
+  "add_ons",
+  "section_break_jbyl",
+  "flight_price",
+  "total_amount"
  ],
  "fields": [
   {
@@ -46,23 +50,7 @@
    "reqd": 1
   },
   {
-   "fieldname": "source_airport",
-   "fieldtype": "Link",
-   "in_list_view": 1,
-   "label": "Source Airport",
-   "options": "Airport",
-   "reqd": 1
-  },
-  {
-   "fieldname": "destination_airport",
-   "fieldtype": "Link",
-   "in_list_view": 1,
-   "label": "Destination Airport",
-   "options": "Airport",
-   "reqd": 1
-  },
-  {
-   "fetch_from": "source_airport.code",
+   "fetch_from": "flight.source_airport_code",
    "fieldname": "source_airport_code",
    "fieldtype": "Data",
    "in_list_view": 1,
@@ -72,7 +60,7 @@
    "reqd": 1
   },
   {
-   "fetch_from": "destination_airport.code",
+   "fetch_from": "flight.destination_airport_code",
    "fieldname": "destination_airport_code",
    "fieldtype": "Data",
    "in_list_view": 1,
@@ -85,16 +73,18 @@
    "fieldname": "flight",
    "fieldtype": "Link",
    "label": "Flight",
-   "options": "Airplane",
+   "options": "Airplane Flight",
    "reqd": 1
   },
   {
+   "fetch_from": "flight.date_of_departure",
    "fieldname": "departure_date",
    "fieldtype": "Date",
    "label": "Departure Date",
    "reqd": 1
   },
   {
+   "fetch_from": "flight.time_of_departure",
    "fieldname": "departure_time",
    "fieldtype": "Time",
    "in_list_view": 1,
@@ -103,6 +93,7 @@
    "reqd": 1
   },
   {
+   "fetch_from": "flight.duration",
    "fieldname": "duration",
    "fieldtype": "Duration",
    "label": "Duration",
@@ -127,13 +118,44 @@
    "fieldtype": "Select",
    "label": "Status",
    "options": "Booked\nChecked-In\nBoarded"
+  },
+  {
+   "fieldname": "add_ons",
+   "fieldtype": "Table",
+   "label": "Add-Ons",
+   "options": "Airplane Ticket Add-on Item"
+  },
+  {
+   "fieldname": "add_ons_section",
+   "fieldtype": "Section Break",
+   "label": "Add Ons"
+  },
+  {
+   "fieldname": "section_break_jbyl",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "flight_price",
+   "fieldtype": "Currency",
+   "label": "Flight Price",
+   "reqd": 1
+  },
+  {
+   "fieldname": "total_amount",
+   "fieldtype": "Currency",
+   "label": "Total Amount"
+  },
+  {
+   "fieldname": "seat",
+   "fieldtype": "Data",
+   "label": "Seat"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-07-29 20:54:43.360505",
+ "modified": "2025-07-31 20:58:36.041005",
  "modified_by": "Administrator",
  "module": "Airplane Mode",
  "name": "Airplane Ticket",

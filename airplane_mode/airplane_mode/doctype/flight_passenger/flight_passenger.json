@@ -5,6 +5,7 @@
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
+  "full_name",
   "first_name",
   "last_name",
   "date_of_birth"
@@ -13,7 +14,6 @@
   {
    "fieldname": "first_name",
    "fieldtype": "Data",
-   "in_list_view": 1,
    "label": "First Name",
    "reqd": 1
   },
@@ -28,6 +28,13 @@
    "in_list_view": 1,
    "label": "Date Of Birth",
    "reqd": 1
+  },
+  {
+   "fieldname": "full_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Full Name",
+   "read_only": 1
   }
  ],
  "grid_page_length": 50,
@@ -38,7 +45,7 @@
    "link_fieldname": "passenger"
   }
  ],
- "modified": "2025-07-29 09:16:49.518096",
+ "modified": "2025-07-31 10:37:14.203840",
  "modified_by": "Administrator",
  "module": "Airplane Mode",
  "name": "Flight Passenger",

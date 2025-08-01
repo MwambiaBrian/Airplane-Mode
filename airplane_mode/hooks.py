@@ -132,6 +132,9 @@ app_license = "mit"
 # override_doctype_class = {
 # 	"ToDo": "custom_app.overrides.CustomToDo"
 # }
+override_doctype_class = {
+    "Airplane Ticket": "airplane_mode.airplane_mode.doctype.airplane_ticket.airplane_ticket.AirplaneTicket"
+}
 
 # Document Events
 # ---------------
