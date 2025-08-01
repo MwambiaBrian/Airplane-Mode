@@ -15,6 +15,9 @@ class AirplaneTicket(Document):
     def before_submit(self):
         if self.status != "Boarded":
             frappe.throw("Cannot submit ticket unless the passenger has boarded.")
+            
+    def on_submit(self):
+        self.status = "Completed"
     def validate(self):
         self.remove_duplicate_add_ons()
         self.calculate_total_amount()
