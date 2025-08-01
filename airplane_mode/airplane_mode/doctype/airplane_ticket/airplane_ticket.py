@@ -1,11 +1,17 @@
 # Copyright (c) 2025, brian and contributors
 # For license information, please see license.txt
-
+import random
+import string
 import frappe
 from frappe.model.document import Document
 
 
 class AirplaneTicket(Document):
+    def before_insert(self):
+        # Generate a seat number in the format: <random-integer><random-letter A-E>
+        number = random.randint(1, 99)
+        letter = random.choice(['A', 'B', 'C', 'D', 'E'])
+        self.seat = f"{number}{letter}"
     def before_submit(self):
         if self.status != "Boarded":
             frappe.throw("Cannot submit ticket unless the passenger has boarded.")
