@@ -1,7 +1,7 @@
 ### Airplane Mode
 
 A hypothetical flight ticket system
-# ✈️ Flight Ticket System – Frappe Learning App
+#  Flight Ticket System – Frappe Learning App
 
 Welcome to the **Flight Ticket System**, a learning-based project designed to help  understand how to model real-world business workflows using the **Frappe Framework** (the foundation of ERPNext). 
 
@@ -9,7 +9,7 @@ This app walks  through modeling a simple flight ticketing process while introdu
 
 ---
 
-## 🚀 What I Learnt
+## What I Learnt
 
 - How to create and configure **DocTypes**
 - Custom field validation and controller logic
@@ -20,7 +20,7 @@ This app walks  through modeling a simple flight ticketing process while introdu
 
 ---
 
-## 📦 Features Modeled
+##  Features Modeled
 
 - **Airline** and **Airplane** registration
 - Booking an **Airplane Ticket** with flight details
@@ -32,7 +32,7 @@ This app walks  through modeling a simple flight ticketing process while introdu
 
 ---
 
-## 🧱 DocTypes Included
+##  DocTypes Included
 
 - `Airline`
 - `Airplane`
@@ -42,7 +42,7 @@ This app walks  through modeling a simple flight ticketing process while introdu
 
 ---
 
-## 🛠 Requirements
+## Requirements
 
 - [Frappe Framework](https://frappeframework.com) ≥ v14.x
 - Python 3.10+
