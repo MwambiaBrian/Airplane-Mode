@@ -1,5 +1,5 @@
 <!-- www/flights/index.html -->
-13
+
 {% set flights = frappe.get_all('Airplane Flight', fields=['name',
 'airplane','source_airport_code', 'route','destination_airport_code', 'date_of_departure',
 'time_of_departure', 'duration'], filters={'is_published': 1}, order_by='date_of_departure asc' )
