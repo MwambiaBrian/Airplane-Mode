@@ -1,0 +1,24 @@
+<!-- www/flights/index.html -->
+13
+{% set flights = frappe.get_all('Airplane Flight', fields=['name',
+'airplane','source_airport_code', 'route','destination_airport_code', 'date_of_departure',
+'time_of_departure', 'duration'], filters={'is_published': 1}, order_by='date_of_departure asc' )
+%}
+
+<h1>Available Flights</h1>
+
+{% for flight in flights %}
+<div class="flight-card" style="margin-bottom: 1.5rem">
+	<h3>{{ flight.airplane }}</h3>
+	<p>
+		<strong>Route:</strong> {{ flight.source_airport_code }} → {{
+		flight.destination_airport_code }}
+	</p>
+	<p>
+		<strong>Departure:</strong> {{ flight.date_of_departure }} at {{ flight.time_of_departure
+		}}
+	</p>
+	<p><strong>Duration:</strong> {{ flight.duration }}</p>
+	<a href="/{{ flight.route }}" class="btn btn-sm btn-primary">View Flight</a>
+</div>
+{% endfor %}

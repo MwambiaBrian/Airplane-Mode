@@ -1,0 +1,6 @@
+{% extends "templates/web.html" %}
+{% set color = frappe.form_dict.color or 'black' %}
+
+<h2>Color Preview: {{ color }}</h2>
+
+<div style="width: 300px; height: 150px; background-color:{{color}}; border: 1px solid #333"></div>
