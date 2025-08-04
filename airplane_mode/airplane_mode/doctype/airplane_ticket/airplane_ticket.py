@@ -19,7 +19,25 @@ class AirplaneTicket(Document):
    
     def validate(self):
         self.remove_duplicate_add_ons()
-        self.calculate_total_amount()
+        self.calculate_total_amount()        # Get the flight document
+        flight = frappe.get_doc("Airplane Flight", self.flight)
+
+        # Get the airplane document linked to the flight
+        airplane = frappe.get_doc("Airplane", flight.airplane)
+        capacity = airplane.capacity or 0
+
+        # Count existing tickets for this flight (excluding the current one in case of update)
+        booked_tickets = frappe.db.count(
+            "Airplane Ticket",
+            {
+                "flight": self.flight,
+                "docstatus": ("!=", 2),  # Exclude cancelled tickets
+                "name": ("!=", self.name)  # Exclude this ticket if it's being updated
+            }
+        )
+
+        if booked_tickets >= capacity:
+            frappe.throw(_("This flight is fully booked. No more tickets can be issued."))
 
     def remove_duplicate_add_ons(self):
         seen = set()
